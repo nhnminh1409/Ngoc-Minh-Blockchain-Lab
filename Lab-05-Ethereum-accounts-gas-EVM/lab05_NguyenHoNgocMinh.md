@@ -121,15 +121,15 @@
 #### Screenshot (a): Decoded Input Data
 Shows the 4-byte selector `0x095ea7b3` and decoded argument table (`to`, `tokenId`):
 
-![Screenshot a: Decoded Input Data](image/lab5_4_input_data.png)
+![Screenshot a: Decoded Input Data](images/lab5_4_input_data.png)
 
 *(Additional view showing MethodID selector `0x095ea7b3`)*:
-![Screenshot a2: MethodID Selector](image/lab5_4_selector.png)
+![Screenshot a2: MethodID Selector](images/lab5_4_selector.png)
 
 #### Screenshot (b): Logs Tab
 Shows the emitted `Approval` event and topics:
 
-![Screenshot b: Logs Tab](image/lab5_4_logs.png)
+![Screenshot b: Logs Tab](images/lab5_4_logs.png)
 
 ---
 
