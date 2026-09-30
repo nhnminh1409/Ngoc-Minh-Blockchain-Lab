@@ -1,7 +1,7 @@
 # Lab 07 Report — Token Standards (ERC-20 & ERC-721)
 
 - **Full Name:** Nguyen Ngoc Minh
-- **Student ID:** ITDSIU22117
+- **Student ID:** 11247201
 - **Deployment Network:** TrustKeys L1 Testnet (Chain ID: `11968`, RPC: `https://l1testnet.trustkeys.network`)
 - **Environment:** Remix IDE (`https://remix.trustkeys.com`) + MetaMask
 - **Compiler Settings:** Solidity `0.8.24`, EVM Version: `paris`, Optimization: `200 runs`
