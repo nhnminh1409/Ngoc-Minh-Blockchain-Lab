@@ -181,12 +181,30 @@ The NFT metadata is therefore **permanent and fully decentralized** without any 
 
 ---
 
-### Q5. *(To be completed)*
+### Q5. What does the word "safe" in `_safeMint` / `safeTransferFrom` actually check, and why is this check necessary?
+
+The "safe" functions check whether the recipient address (`to`) is a smart contract. If it is, that contract **must** implement the `onERC721Received` function and return the correct selector as specified by EIP-721.
+
+This ensures the destination contract has the logic to recognize and manage NFTs. If an NFT were transferred into a standard smart contract that does not support this interface, the NFT would be **permanently locked** inside that contract with no way to retrieve it.
 
 ---
 
-### Q6. *(To be completed)*
+### Q6. The TrustKeys L1 network has no public block explorer. How did you confirm that the 100 CTK transfer was successful?
+
+Three verification methods were used:
+
+1. **Direct view call in Remix:** Called `balanceOf(recipient_address)` directly through the Remix interface (or via RPC / ethers.js) to confirm the recipient's balance increased by exactly `100000000000000000000` wei.
+2. **MetaMask balance update:** Observed the CTK token balance update in real time in the recipient's MetaMask wallet after importing the token contract address.
+3. **Transaction receipt via RPC:** Queried the transaction receipt from the node via RPC to verify the emitted `Transfer(from, to, value)` event.
 
 ---
 
-### Q7. *(To be completed)*
+### Q7 (Bonus). What mechanism prevents an attacker from replaying a `permit` signature (EIP-2612) on a different chain, or replaying it a second time on the same chain?
+
+**Protection against replay on a different chain or contract:**
+EIP-712 integrates a `DOMAIN_SEPARATOR` structure that includes the current network's `chainId` and the `verifyingContract` address. When a signature is carried to a different network or a different contract, the domain hash no longer matches and the transaction is immediately rejected.
+
+**Protection against replay on the same chain:**
+Each account is associated with a monotonically incrementing counter `nonces[owner]`. After `permit` executes successfully, the owner's nonce is automatically incremented by 1, making the old signature invalid since it no longer matches the current nonce.
+
+Additionally, the `deadline` parameter enforces an expiry timestamp, preventing an attacker from storing a signature and executing it at a later time.
