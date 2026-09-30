@@ -181,5 +181,4 @@ Shows the emitted `Approval` event and topics:
 ### 3. Preparation for Session 6:
 - [x] Completed fee history measurements and EIP-1559 comparative analysis between TrustKeys L1 and Sepolia.
 - [x] Researched EVM opcode execution costs and storage economics via evm.codes.
-- [ ] Register Seminar group (3–4 students) and submit top 3 topic choices before the weekend.
-- [ ] Read Chapter 13 (The EVM) of *Mastering Ethereum* and the Proof-of-Stake documentation on `ethereum.org`.
+
